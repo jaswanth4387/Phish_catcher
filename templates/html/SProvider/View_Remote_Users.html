@@ -1,0 +1,114 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<style>
+    body {
+        background: #f4f7fb;
+    }
+
+    .dashboard-card {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .header-bar h4 {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .search-box {
+        width: 250px;
+    }
+
+    .table thead {
+        background: linear-gradient(90deg, #2563eb, #7c3aed);
+        color: white;
+    }
+
+    .table tbody tr:hover {
+        background: #eef2ff;
+        transition: 0.2s;
+    }
+
+    .badge-gender {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .male {
+        background: #dbeafe;
+        color: #1e40af;
+    }
+
+    .female {
+        background: #fce7f3;
+        color: #9d174d;
+    }
+</style>
+
+<div class="container mt-4">
+
+    <div class="dashboard-card">
+
+        <!-- 🔹 Header -->
+        <div class="header-bar">
+            <h4>👥 Remote Users</h4>
+
+            <input type="text" class="form-control search-box" placeholder="Search user...">
+        </div>
+
+        <!-- 🔹 Table -->
+        <div class="table-responsive">
+            <table class="table align-middle table-hover">
+
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Mobile</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for o in objects %}
+                    <tr>
+                        <td><strong>{{ o.username }}</strong></td>
+
+                        <td>{{ o.email }}</td>
+
+                        <td>
+                            <span class="badge-gender 
+                                {% if o.gender == 'Male' %} male {% else %} female {% endif %}">
+                                {{ o.gender }}
+                            </span>
+                        </td>
+
+                        <td>{{ o.phoneno }}</td>
+
+                        <td>
+                            {{ o.city }}, {{ o.state }}, {{ o.country }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

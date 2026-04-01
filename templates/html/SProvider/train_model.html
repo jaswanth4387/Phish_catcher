@@ -1,0 +1,93 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<style>
+    .results-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .title {
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .table thead {
+        background: linear-gradient(90deg, #2563eb, #7c3aed);
+        color: white;
+    }
+
+    .table tbody tr:hover {
+        background: #f1f5f9;
+    }
+
+    .accuracy-badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 500;
+    }
+
+    .high {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .medium {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .low {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+</style>
+
+<div class="container mt-4">
+
+    <div class="results-card">
+
+        <h4 class="title">📊 Model Training & Testing Results</h4>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Model Type</th>
+                        <th>Accuracy (%)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for object in objs %}
+                    <tr>
+
+                        <!-- FIX: name field -->
+                        <td><strong>{{ object.name }}</strong></td>
+
+                        <td>
+                            <span class="accuracy-badge 
+                                {% if object.ratio > 90 %} high
+                                {% elif object.ratio > 70 %} medium
+                                {% else %} low
+                                {% endif %}">
+                                
+                                {{ object.ratio|floatformat:2 }}%
+                            </span>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

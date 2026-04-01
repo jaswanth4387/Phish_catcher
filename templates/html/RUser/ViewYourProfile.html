@@ -1,0 +1,126 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+
+<style>
+    .profile-wrapper {
+        padding: 20px;
+    }
+
+    .profile-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .profile-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .profile-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .profile-header img {
+        width: 90px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .info-box {
+        background: #f8fafc;
+        border-radius: 10px;
+        padding: 12px;
+    }
+
+    .info-box small {
+        color: #6b7280;
+    }
+
+    .info-box h6 {
+        margin: 5px 0 0;
+        font-weight: 600;
+    }
+</style>
+
+<div class="profile-wrapper">
+
+    <div class="row g-4">
+
+        <!-- 🔹 Left Profile Card -->
+        <div class="col-md-4">
+            <div class="profile-card text-center">
+
+                <div class="profile-header">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+                    <h5>{{ object.username }}</h5>
+                    <p class="text-muted">{{ object.email }}</p>
+                </div>
+
+                <span class="badge bg-success">Active User</span>
+
+            </div>
+        </div>
+
+        <!-- 🔹 Right Details -->
+        <div class="col-md-8">
+            <div class="profile-card">
+
+                <h5 class="mb-3">📋 Profile Details</h5>
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <small>Mobile</small>
+                            <h6>{{ object.phoneno }}</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <small>Gender</small>
+                            <h6>{{ object.gender }}</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <small>Country</small>
+                            <h6>{{ object.country }}</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <small>State</small>
+                            <h6>{{ object.state }}</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <small>City</small>
+                            <h6>{{ object.city }}</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <small>Address</small>
+                            <h6>{{ object.address }}</h6>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
