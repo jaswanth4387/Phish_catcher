@@ -138,7 +138,7 @@ def train_model(request):
 
         # ✅ Safe path
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        dataset_path = os.path.join(BASE_DIR, 'provider', 'Datasets.csv')
+        dataset_path = os.path.join(BASE_DIR, 'Provider', 'Datasets.csv')
 
         print("Dataset Path:", dataset_path)
 
