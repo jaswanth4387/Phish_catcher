@@ -155,7 +155,7 @@ export SECRET_KEY="your-long-random-string"
 - [ ] Add tests, URL-based features (length, special characters, TLD), and a REST API.
 
 ---
-
+<!--
 ## 🤝 Contributing
 
 1. Fork the repo
@@ -164,7 +164,7 @@ export SECRET_KEY="your-long-random-string"
 4. Open a Pull Request
 
 ---
-
+-->
 ## 👤 Author
 
 **Jakkampudi Jaswanth Krishna**
